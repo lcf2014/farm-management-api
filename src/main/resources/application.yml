@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+jwt:
+  expiration: 3600000  # 1 hour in milliseconds
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+spring:
+  application:
+    name: FarmAPI
+  datasource:
+    url: jdbc:postgresql://db:5432/farmdb
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: always
+  logging:
+    level:
+      root: info
+      org.hibernate.SQL: debug
